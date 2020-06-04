@@ -1,5 +1,7 @@
 package com.nbapp.referee.modules.team
 
+import javax.persistence.*
+
 @Entity
 class Team (
     @Id
