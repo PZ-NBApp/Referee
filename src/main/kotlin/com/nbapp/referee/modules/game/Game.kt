@@ -3,10 +3,8 @@ package com.nbapp.referee.modules.game
 import javax.persistence.*
 
 @Entity
-class Game(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val gameId: Int? = null,
+data class Game(
+
 
         val hostId: Int,
 
@@ -16,6 +14,9 @@ class Game(
 
         var guestResult: Int)
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val gameId: Int = 0
     fun updateHostResult(newResult: Int){
         hostResult = newResult
     }

@@ -3,10 +3,8 @@ package com.nbapp.referee.modules.team
 import javax.persistence.*
 
 @Entity
-class Team (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val teamId: Int? = null,
+data class Team (
+
 
     val name: String,
 
@@ -20,6 +18,9 @@ class Team (
 
     var winPercentage: Float
     ){
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val teamId: Int = 0
         fun wonGame(){
             winPercentage = 0.0F
             gamesPlayed++
