@@ -3,7 +3,7 @@ package com.nbapp.referee.modules.game
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/game")
 class GameController (private val gameService: GameService) {
     @GetMapping
     fun getGames():Iterable<Game> {
