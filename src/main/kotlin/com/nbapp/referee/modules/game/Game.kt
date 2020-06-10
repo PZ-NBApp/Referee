@@ -1,18 +1,18 @@
 package com.nbapp.referee.modules.game
-
+import com.nbapp.referee.modules.team.Team
 import javax.persistence.*
 
 @Entity
 data class Game(
-
-
-        val hostId: Int,
-
-        val guestId: Int,
-
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "hostId")
+        var host : Team,
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "guestId")
+        var guest : Team,
         var hostResult: Int,
-
         var guestResult: Int)
+
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
