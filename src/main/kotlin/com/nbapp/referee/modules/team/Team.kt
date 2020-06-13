@@ -1,5 +1,7 @@
 package com.nbapp.referee.modules.team
 
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import javax.persistence.*
 
 @Entity
@@ -22,16 +24,20 @@ data class Team (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val teamId: Int = 0
         fun wonGame(){
+            val x : Float
             winPercentage = 0.0F
             gamesPlayed++
             gamesWon++
-            winPercentage = (gamesWon/gamesPlayed).toFloat()
+            winPercentage = (((gamesWon.toFloat()/gamesPlayed.toFloat())) * 100.0f)
+
         }
         fun lostGame(){
+            val x : Float
             winPercentage = 0.0F
             gamesPlayed++
             gamesLost++
-            winPercentage = (gamesWon/gamesPlayed).toFloat()
+            winPercentage = (((gamesWon.toFloat()/gamesPlayed.toFloat())) * 100.0f)
+
         }
 
    }
